@@ -14,6 +14,7 @@
     <p id="losses-text">Losses:</p>
     <p id="guesses-text">Guesses Left:</p>
     <p id="userchoice-text">Your Guesses so far:</p>
+    <p id="computerchoice-text">Computer Choice:</p>
 
   </div>
 
@@ -33,29 +34,40 @@
     var lossesText = document.getElementById("losses-text");
     var userChoiceText = document.getElementById("userchoice-text");
     var guessesLeftText = document.getElementById("guesses-text");
+    
 
+    
 
     // This function is run whenever the user presses a key.
-    document.onkeyup = function(event) {
+      document.onkeyup = function(event) {
 
-      // Determines which key was pressed.
-      var userChoice = event.key;
+        // Determines which key was pressed.
+        var userChoice = event.key;
+  
+
+      console.log(userChoice)
 
       // Randomly chooses a choice from the options array. This is the Computer's guess.
       var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
       // If the choices match, increment our wins variable and reset guesses left to 9.
-        if (userGuess === computerChoices) {
-          wins++;}
-         else if (userGuess !== computerChoices) {guessesLeft-1;
-          } else if (userGuess === computerChoices); {guessesLeft=9;}
-        }       
+        if (userChoice === computerGuess) {
+          wins++;
+          guessesLeft = 9}
+          
+         else if (userChoice !== computerGuess) {guessesLeft--;
+         }
 
-        // Display the user and computer guesses, and wins/losses.
+         if (guessesLeft === 0) {losses++; guessesLeft=9;
+         }
+
+        // Display the user guesses, and wins/losses.
         userChoiceText.textContent = "You chose: " + userChoice;
-        computerChoiceText.textContent = "The computer chose: " + computerC;
+        computerChoicesText.textContent = "The computer chose: " + computerGuess;
         winsText.textContent = "wins: " + wins;
         lossesText.textContent = "losses: " + losses;
+        guessesLeftText.textContent = "guesses left:" + guessesLeft;
+      }
   
   </script>
 
