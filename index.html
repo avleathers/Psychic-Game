@@ -46,20 +46,18 @@
 
       // If the choices match, increment our wins variable and reset guesses left to 9.
         if (userGuess === computerChoices) {
-          wins++; else if (userGuess !== computerChoices) (guessesLeft-1); else if (userGuess === computerChoices); {guessesLeft=9}
+          wins++;}
+         else if (userGuess !== computerChoices) {guessesLeft-1;
+          } else if (userGuess === computerChoices); {guessesLeft=9;}
         }       
 
-        // Hide the directions
-        directionsText.textContent = "";
-
-        // Display the user and computer guesses, and wins/losses/ties.
+        // Display the user and computer guesses, and wins/losses.
         userChoiceText.textContent = "You chose: " + userChoice;
-        computerChoiceText.textContent = "The computer chose: " + computerChoices;
+        computerChoiceText.textContent = "The computer chose: " + computerC;
         winsText.textContent = "wins: " + wins;
         lossesText.textContent = "losses: " + losses;
-}
+  
   </script>
-
 
 </body>
 
